@@ -3,10 +3,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 /**
- * 
- */
-
-/**
+ * @desc Project Phase 1. Do not change this file. Your code should work flawlessly with this file when completed.
  * @author Glen
  *
  */
@@ -44,7 +41,7 @@ public class javaFit {
     ArrayList<Workouts.Equipment> equipmentList = new ArrayList<Workouts.Equipment>();
     equipmentList.add(Workouts.Equipment.valueOf(equipment));
     equipmentList.add(Workouts.Equipment.valueOf(equipment2));
-    ArrayList<String[]> refinedWorkoutData =workouts.getWorkoutsByMuscle(Workouts.Muscle.valueOf(muscleAgain), true).getWorkoutsByEquipment(equipmentList).getFullInformation(); 
+    ArrayList<String[]> refinedWorkoutData =workouts.getWorkoutsByMuscle(Workouts.Muscle.valueOf(muscleAgain), true).getWorkoutsByEquipment(equipmentList).getFullInformation(); // Take note of the valueOf() method. You will need this for your code.
     for(String[] workout : refinedWorkoutData) {
       System.out.println(Arrays.deepToString(workout));
     }
