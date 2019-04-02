@@ -10,7 +10,8 @@ import java.util.ArrayList; // We choose ArrayList over Vector because...?
 
 public class Workouts {
 
-  public enum Muscle {ABS, BACK, BICEPS, CHEST, FOREARM, GLUTES, LOWERLEG, SHOULDER, TRICEPS, UPPERLEG, NONE} // Why didn't I have to declare this static?
+  // Use the Refactor functionality in Eclipse to rename "muscle" to "Muscle" to match our naming convention.
+  public enum muscle {ABS, BACK, BICEPS, CHEST, FOREARM, GLUTES, LOWERLEG, SHOULDER, TRICEPS, UPPERLEG, NONE} // Why didn't I have to declare this static?
   public enum Equipment {BARBELL, BODYWEIGHT, DUMBBELL, CABLE, HAMMERSTRENGTH}
 	private final ArrayList<Workout> workoutList = new ArrayList<Workout>();
 
@@ -20,19 +21,19 @@ public class Workouts {
 	private class Workout {
 	  private String name;
 	  private Equipment equipment;
-		private Muscle primaryMuscle;
-		private Muscle secondaryMuscle;
+		private muscle primaryMuscle;
+		private muscle secondaryMuscle;
 		private String desc;
 		private String reminders;
 	
-    Workout(String name, Equipment equipment, Muscle primaryMuscle, Muscle secondaryMuscle, String desc, String reminders) {
+    Workout(String name, Equipment equipment, muscle primaryMuscle, muscle secondaryMuscle, String desc, String reminders) {
     }
 		
     // How do we get the name of an enumeration value?
 	}
 	
   // This function adds a new workout to the Workouts object.
-  public final void addWorkout(String name, Equipment equipment, Muscle primaryMuscle, Muscle secondaryMuscle, String desc, String reminders)
+  public final void addWorkout(String name, Equipment equipment, muscle primaryMuscle, muscle secondaryMuscle, String desc, String reminders)
   {
   }
   
@@ -45,7 +46,7 @@ public class Workouts {
   // Equipment value that is provided as an argument. The programmer has an option to get
   // Workouts that only have the Muscle in the PrimaryMuscle attribute, or to also look
   // in the secondaryMuscle category.
-	public final Workouts getWorkoutsByMuscle(Muscle m, boolean includeSecondary)
+	public final Workouts getWorkoutsByMuscle(muscle m, boolean includeSecondary)
 	{
 	  // What is short-circuit evaluation?
 	}
