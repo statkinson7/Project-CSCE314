@@ -23,14 +23,14 @@ public class javaFit {
 	  System.out.println("Enter one of the following: ABS, BACK, BICEPS, CHEST, FOREARM, GLUTES, LOWERLEG, SHOULDER, TRICEPS, UPPERLEG");
 	  Scanner scanner = new Scanner(System. in);
     String muscle = scanner.nextLine();
-    System.out.println(workouts.getWorkoutsByMuscle(Workouts.muscle.valueOf(muscle), false).getNames()); // Pay special attention to how we convert this string to an enum value!
+    System.out.println(workouts.getWorkoutsByMuscle(Workouts.Muscle.valueOf(muscle), false).getNames()); // Pay special attention to how we convert this string to an enum value!
 	  
 	  // Print out the full information on workouts that use a specific equipment and work a muscle (primary or secondary)
     System.out.println("\nEnter one of the following: ABS, BACK, BICEPS, CHEST, FOREARM, GLUTES, LOWERLEG, SHOULDER, TRICEPS, UPPERLEG");
     String muscleAgain = scanner.nextLine();
     System.out.println("Enter one of the following: BARBELL, BODYWEIGHT, DUMBBELL, CABLE, HAMMERSTRENGTH");
     String equipment = scanner.nextLine();
-    Workouts chosenWorkouts =workouts.getWorkoutsByMuscle(Workouts.muscle.valueOf(muscleAgain), true).getWorkoutsByEquipment(Workouts.Equipment.valueOf(equipment)); 
+    Workouts chosenWorkouts =workouts.getWorkoutsByMuscle(Workouts.Muscle.valueOf(muscleAgain), true).getWorkoutsByEquipment(Workouts.Equipment.valueOf(equipment)); 
     ArrayList<String[]> workoutData =chosenWorkouts.getFullInformation(); 
     for(String[] workout : workoutData) {
       System.out.println(Arrays.deepToString(workout));
@@ -41,7 +41,7 @@ public class javaFit {
     ArrayList<Workouts.Equipment> equipmentList = new ArrayList<Workouts.Equipment>();
     equipmentList.add(Workouts.Equipment.valueOf(equipment));
     equipmentList.add(Workouts.Equipment.valueOf(equipment2));
-    ArrayList<String[]> refinedWorkoutData =workouts.getWorkoutsByMuscle(Workouts.muscle.valueOf(muscleAgain), true).getWorkoutsByEquipment(equipmentList).getFullInformation(); // Take note of the valueOf() method. You will need this for your code.
+    ArrayList<String[]> refinedWorkoutData =workouts.getWorkoutsByMuscle(Workouts.Muscle.valueOf(muscleAgain), true).getWorkoutsByEquipment(equipmentList).getFullInformation(); // Take note of the valueOf() method. You will need this for your code.
     for(String[] workout : refinedWorkoutData) {
       System.out.println(Arrays.deepToString(workout));
     }
