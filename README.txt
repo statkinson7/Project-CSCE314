@@ -1,38 +1,41 @@
-Overview:
-This project is composed of several parts. This is phase 1. It is due on Friday, April 12th. Thereafter, you will get one new phase each week. Read the comments in the code. These comments will give you hints on how to create the code you need. There are also questions in the comments. Answering these questions is worth points.
+Phase 2 is due Wednesday the 24th at 11:59pm.
 
 Coding:
-Your job is to extend the functionality of the provided code. Do not delete or alter any of the given code. Your code must have the same return values and function prototypes as what is provided, as well as the same level of information hiding and encapsulation.
+Use Refactor -> Move to move the Muscle and the Equipment enumerations to the Config class, which is where they should have been from the beginning. 
 
-You have two parts to this phase of the project. The first is to create an object to embody the concept of “Workouts.”  The data values you need for a workout are already in the skeleton file. You will need to write code to handle the expected methods of the Workouts class. You will need to write helper methods to perform these tasks.
+Take what you learned writing the loadWorkouts() method and write a loadFormats() group. It should read a file defined in Config.WORKOUTFORMATFILE as a CSV file and return an enumeration hashmap.
 
-The second part of this phase is to write a file reader that will load the workouts from a CSV (comma separated values) file into the Workouts object. You can assume that there are no extra commas in the CSV file that need to be escaped. All commas act as separators.
+Set Workout inner class to public and use the Refactor option to extract the workout class to a new file, so the class is now its own file. This reflects a design change in the future use of the software.
 
-The main javaFit file has a series of function calls that will be used to test the performance of your code. Do not modify these. Looking at these lines of code will give you some insight into how your code will be used.
+Add these methods to the Workout class. They should function just like the hasEquipment equivalent.
+protected boolean hasPrimaryMuscle(ArrayList<Config.Muscle> muscleList) 
+protected boolean hasSecondaryMuscle(ArrayList<Config.Muscle> muscleList).
 
-Style:
-Glen mentioned the importance of use a specific programming style. Use the refactor tool to rename class names as per the Google Java Style Guide. https://google.github.io/styleguide/javaguide.html when in doubt, use this style guide.
+Add these methods to the Workouts class. 
+public final Workouts getWorkoutsByMuscle(ArrayList<Config.Muscle> m, boolean includeSecondary)
+This should function just like the getWorkoutsByEquipment equivalent.
+public final ArrayList<String> getEquipment()
+This should function just like the getNames equivalent.
+public final int size()
+This should return the number of workouts in the class.
+public final Workout getWorkout(int index)
+This should return an instance of the workout class that matches the index in the workoutList.
+public final String getWorkoutEquipment(int index)
+This should return the equipment of the workout at the given index.
+public final int findWorkoutByName(String name)
+This searches through the list of workouts in the class and returns the index of the workout with that name.
 
-Notes:
-Indents in these files are set to 2 spaces. You can change this setting in your Eclipse file by clicking Window Preferences. -> Expand Java Code Style ->Click Formatter -> Click the Edit button -> Click the Indentation tab.
-Under General Settings, set Tab policy to Spaces only, set spaces to 2.
+You have a new javaFit.java file. It loads the two data files and creates a new window. This is the bulk of the assignment: Create a Swing class that creates and displays three full-size buttons in a 600x400 window and then add ActionListeners to them that call a function to display the appropriate workout groups.
 
-You are going to need to load files in this app. Eclipse, however, is going to be picky about where the “current directory” is. We could solve this by using absolute paths, but that means you may run into problems when you are trying to find that location on your system, which may be laid out differently than my system. So we will instead set up the Eclipse working directory
+The WorkoutsPanel.java class is provided for you.
 
-Go to the "run configuration", open the "Arguments" (second) tab, and click the "Other" radio button. Then enter an absolute pathname as the working directory for the launched application. This directory will be the one where you put your csv files. Mine are, cleverly, in “C:\Users\Glen\eclipse-workspace\javafit\data”. Click Apply.
+You will want to make sure you get the new workouts.csv file from github so you have a larger selection of test data. 
 
 What You Turn In:
-1) The completed .java files. Include all four.
-2) A text file with your answers to the questions in the code comments.
+1) The completed .java files.
 
 Grading: 
 Grading will be based upon completeness. If your code is fully functional and passes all tests while adhering to the design guidelines, you get full points for this section. If your code is partially functional, you will get partial credit. If your code does not compile or run, you will get minimal credit. If you turn nothing in, you will get no credit.
 
 Academic Honesty: As with most programming project, student code will be subjected to extensive anti-cheating monitoring. Algorithm design will be checked, as well as code layout. 
-
-Future Phases and Late Work:
-A solution to each phase will be provided, as well as new start files, so that a student who does poorly in one phase is not starting at a disadvantage in the following section. Students may continue to use their own code, or they may use the provided start files for each subsequent phase.
-
-Because solutions will be provided, late assignments can not be accepted.
-
 
